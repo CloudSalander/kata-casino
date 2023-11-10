@@ -29,6 +29,11 @@ class Casino {
 		return array_key_exists($player,$this->players);
 	}
 
+	public function addProfitToPlayer(string $player, int $profit): void {
+		if($this->hasPlayer($player)) {
+			$this->players[$player] += $profit;
+		}
+	}
 
 } 
 ?>

@@ -11,4 +11,9 @@ $casino->addPlayer("Anna");
 $casino->removePlayer("Anna");
 $casino->removePlayer("Anna");
 
+$casino->addProfitToPlayer("Anna",20);
+$casino->addProfitToPlayer("J.Laporta",-500);
+$casino->addProfitToPlayer("Pep",32);
+$casino->addProfitToPlayer("Pep",-17);
+
 ?>
