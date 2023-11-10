@@ -7,12 +7,21 @@ class Casino {
 		$this->players = [];
 	}
 
-	public function addPlayer(string $player) {
+	public function addPlayer(string $player): void {
 		if($this->hasPlayer($player)) {
-			echo $player." is already in the casino";		
+			echo $player." is already in the casino".PHP_EOL;		
 		}
 		else {
 			$this->players[$player] = 0;
+		}
+	}
+
+	public function removePlayer(string $player): void {
+		if(!$this->hasPlayer($player)) {
+			echo $player." is not in the casino".PHP_EOL;		
+		}
+		else {
+			unset($this->players[$player]);
 		}
 	}
 

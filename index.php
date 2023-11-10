@@ -8,5 +8,7 @@ $casino->addPlayer("Pep");
 $casino->addPlayer("J.Laporta");
 $casino->addPlayer("Anna"); 
 
+$casino->removePlayer("Anna");
+$casino->removePlayer("Anna");
 
 ?>
