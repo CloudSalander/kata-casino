@@ -36,5 +36,12 @@ class Casino {
 		}
 	}
 
+	public function close() {
+		echo "-----------".PHP_EOL;
+		foreach ($this->players as $name => $profits) {
+			echo $name." is winning ".$profits.PHP_EOL;
+		}
+	}
+
 } 
 ?>

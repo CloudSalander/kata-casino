@@ -17,5 +17,6 @@ $casino->addProfitToPlayer("Pep",32);
 $casino->addProfitToPlayer("Pep",-17);
 $casino->removePlayer("J.Laporta");
 
+$casino->close();
 
 ?>
