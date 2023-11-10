@@ -8,9 +8,8 @@ class Casino {
 	}
 
 	public function addPlayer(string $player) {
-		var_dump($this->hasPlayer($player));
 		if($this->hasPlayer($player)) {
-			echo $player->getName()." is already in the casino";		
+			echo $player." is already in the casino";		
 		}
 		else {
 			$this->players[$player] = 0;
@@ -18,7 +17,7 @@ class Casino {
 	}
 
 	private function hasPlayer(string $player): bool {
-		return array_key_exist($player,$this->players);
+		return array_key_exists($player,$this->players);
 	}
 
 
