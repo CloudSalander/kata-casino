@@ -21,6 +21,7 @@ class Casino {
 			echo $player." is not in the casino".PHP_EOL;		
 		}
 		else {
+			echo $player." has won ".$this->players[$player].PHP_EOL;
 			unset($this->players[$player]);
 		}
 	}
