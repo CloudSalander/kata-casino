@@ -52,9 +52,12 @@ class Casino {
 		return array_key_exists($player,$this->players);
 	}
 
-	public function addProfitToPlayer(array $player): void {
+	private function addProfitToPlayer(array $player): void {
 		if($this->hasPlayer($player['name'])) {
 			$this->players[$player['name']] += $player['profit'];
+		}
+		else {
+			echo $player['name']." is not in the casino".PHP_EOL;	
 		}
 	}
 
