@@ -7,7 +7,29 @@ class Casino {
 		$this->players = [];
 	}
 
-	public function addPlayer(string $player): void {
+	public function readMessage(string $msg): void {
+		$array_msg = explode(" ",$msg);
+		if(count($array_msg) == 2) {
+			$player_move = ['name' => $array_msg[0], 'move' => $array_msg[1]];
+			$this->movePlayers($player_move);
+		}
+		else if(count($array_msg) == 3) {
+			$player_profits = ['name' => $array_msg[0], 'profit' => $array_msg[2]];
+			$this->addProfitToPlayer($player_profits);
+		}
+	}
+
+	private function movePlayers(array $player_move): void {
+		if(strcmp($player_move['move'],"enters") === 0) {
+			$this->addPlayer($player_move['name']);
+		}
+		else if(strcmp($player_move['move'],"leaves") === 0) {
+			$this->removePlayer($player_move['name']);
+		}
+	}
+
+
+	private function addPlayer(string $player): void {
 		if($this->hasPlayer($player)) {
 			echo $player." is already in the casino".PHP_EOL;		
 		}
@@ -16,7 +38,7 @@ class Casino {
 		}
 	}
 
-	public function removePlayer(string $player): void {
+	private function removePlayer(string $player): void {
 		if(!$this->hasPlayer($player)) {
 			echo $player." is not in the casino".PHP_EOL;		
 		}
@@ -30,18 +52,19 @@ class Casino {
 		return array_key_exists($player,$this->players);
 	}
 
-	public function addProfitToPlayer(string $player, int $profit): void {
-		if($this->hasPlayer($player)) {
-			$this->players[$player] += $profit;
+	public function addProfitToPlayer(array $player): void {
+		if($this->hasPlayer($player['name'])) {
+			$this->players[$player['name']] += $player['profit'];
 		}
 	}
 
-	public function close() {
+	public function close(): void  {
 		echo "-----------".PHP_EOL;
 		foreach ($this->players as $name => $profits) {
 			echo $name." is winning ".$profits.PHP_EOL;
 		}
 	}
+
 
 } 
 ?>
